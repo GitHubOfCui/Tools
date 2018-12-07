@@ -20,29 +20,29 @@
 ==
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;简单来说，Screen是一个可以在多个进程之间多路复用一个物理终端的窗口管理器。Screen中有会话的概念，用户可以在一个screen会话中创建多个screen窗口，在每一个screen窗口中就像操作一个真实的telnet/SSH连接窗口那样。在screen中创建一个新的窗口有这样几种方式：
 
-直接在命令行键入screen命令
-__
+1 直接在命令行键入screen命令
+--
 
     [root@ibnode8 mxnet]# screen
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen将创建一个执行shell的全屏窗口。你可以执行任意shell程序，就像在ssh窗口中那样。在该窗口中键入exit退出该窗口，如果这是该screen会话的唯一窗口，该screen会话退出，否则screen自动切换到前一个窗口。
 
 2 给screen会话命名
-__
+--
 
     [root@ibnode8 mxnet]# screen -S screen_name
 
 给screen会话命名使管理更容易。
 
 3 Screen命令后跟你要执行的程序
-__
+--
 
     [root@ibnode8 mxnet]# screen vi test.c
 
 Screen创建一个执行vi test.c的单窗口会话，退出vi将退出该窗口/对话。
 
 4 查看当前screen会话列表
-__
+--
 
     [root@ibnode8 mxnet]# screen -ls
     There is a screen on:
@@ -50,11 +50,11 @@ __
     1 Socket in /var/run/screen/S-root.
 
 5 screen会话的断开与重连
-__
+--
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当我们登入一个screen会话的之后如果要退出可使用CRTL+D，这个方法会强制终止当前会话。如果我们之后还想继续使用当前对话，使用CRTL+A+D命令会让当前screen会话处于detached状态，下次如果要使用可以用screen -r screen_name/screen_pid进行重连。
 
-更多screen功能
-__
+6 更多screen功能
+--
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen提供了丰富强大的定制功能。你可以在Screen的默认两级配置文件/etc/screenrc和$HOME/.screenrc中指定更多，例如设定screen选项，定制绑定键，设定screen会话自启动窗口，启用多用户模式，定制用户访问权限控制等等。如果你愿意的话，也可以自己指定screen配置文件。
 
